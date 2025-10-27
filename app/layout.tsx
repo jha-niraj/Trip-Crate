@@ -21,8 +21,8 @@ const geistSans = Geist({
 });
 
 export const metadata: Metadata = {
-	title: "Next Starter Kit",
-	description: "All medicine info at one place",
+	title: "TripCrate",
+	description: "Student-curated travel guides, discounts, and plans for nearby getaways",
 };
 
 export default function RootLayout({

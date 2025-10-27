@@ -38,12 +38,12 @@ const Footer = () => {
                     <div className="lg:col-span-2">
                         <Link href="/" className="flex items-center gap-2 mb-4">
                             <div className="w-8 h-8 bg-gradient-to-br from-teal-500 to-emerald-600 rounded-lg flex items-center justify-center">
-                                <span className="text-white font-bold text-lg">V</span>
+                                <span className="text-white font-bold text-lg">T</span>
                             </div>
-                            <span className="font-bold text-xl tracking-tight">ValidateX</span>
+                            <span className="font-bold text-xl tracking-tight">TripCrate</span>
                         </Link>
                         <p className="text-neutral-400 mb-6 max-w-sm">
-                            Empowering innovators worldwide with blockchain-powered idea validation and community feedback.
+                            Student-curated travel guides, discounts, and plans for nearby getaways.
                         </p>
                         <div className="flex gap-4">
                             <Button size="sm" variant="ghost" className="p-2 hover:bg-neutral-800">
@@ -85,10 +85,10 @@ const Footer = () => {
                 <hr className="border-neutral-800 mb-8" />
                 <div className="flex flex-col md:flex-row justify-between items-center gap-4">
                     <p className="text-neutral-400 text-sm">
-                        © 2024 ValidateX. All rights reserved.
+                        © 2025 TripCrate. All rights reserved.
                     </p>
                     <p className="text-neutral-400 text-sm">
-                        Made with ❤️ for innovators worldwide
+                        Made with ❤️ for students
                     </p>
                 </div>
             </div>

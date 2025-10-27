@@ -2,10 +2,10 @@
 
 import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
-import { AuthLayout } from "@/components/authlayout"
 import { CheckCircle, Globe, BookOpen, Mic } from "lucide-react"
 import { useRouter } from "next/navigation"
 import { Progress } from "@/components/ui/progress"
+import AuthLayout from "@/components/authlayout"
 
 export default function Waiting() {
     const [progress, setProgress] = useState(0)

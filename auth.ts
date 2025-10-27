@@ -7,7 +7,7 @@ import { Role } from '@prisma/client';
 import bcrypt from "bcryptjs";
 
 export const { auth, handlers, signIn, signOut } = NextAuth({
-	adapter: PrismaAdapter(prisma),
+	adapter: PrismaAdapter(prisma) as any,
 	providers: [
 		CredentialsProvider({
 			name: "Credentials",
@@ -54,7 +54,6 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
 								image: freshUser.image,
 								role: freshUser.role,
 								roleExplicitlyChosen: freshUser.roleExplicitlyChosen,
-								onboardingCompleted: freshUser.onboardingCompleted,
 							};
 						} else {
 							throw new Error("Email verification not completed");

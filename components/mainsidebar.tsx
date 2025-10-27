@@ -93,7 +93,7 @@ const Sidebar = ({ isCollapsed, toggleSidebar }: SidebarProps) => {
 						<Link href={session ? "/dashboard" : "/"} className="flex gap-2 items-center justify-center group cursor-pointer">
 							<Image
 								src="/validatexmainlogo.png"
-								alt="ShunyaTech"
+								alt="TripCrate"
 								width={32}
 								height={32}
 								className="rounded-2xl"
@@ -109,7 +109,7 @@ const Sidebar = ({ isCollapsed, toggleSidebar }: SidebarProps) => {
 							>
 								<div className="whitespace-nowrap">
 									<h1 className="text-xl font-bold text-gray-900 dark:text-white">
-										ValidateX
+										TripCrate
 									</h1>
 								</div>
 							</motion.div>

@@ -220,12 +220,12 @@ export const Header = () => {
                             >
                                 <Image
                                     src="/validatexmainlogo.png"
-                                    alt="ValidateX"
+                                    alt="TripCrate"
                                     width={32}
                                     height={32}
                                     className='w-10 h-10 rounded-full scale-110'
                                 />
-                                <p className='font-semibold text-xl tracking-tighter text-black dark:text-white'>ValidateX</p>
+                                <p className='font-semibold text-xl tracking-tighter text-black dark:text-white'>TripCrate</p>
                             </Link>
                             <Sheet>
                                 <SheetTrigger asChild>
