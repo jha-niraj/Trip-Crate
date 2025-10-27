@@ -15,6 +15,7 @@ import { CurrencySection } from "@/components/landing/currency-section"
 import { InfluencerSection } from "@/components/landing/influencer-section"
 import { TestimonialsSection } from "@/components/landing/testimonials-section"
 import SmoothScroll from "@/components/smoothscroll"
+import { InstagramTestimonials } from "@/components/landing/instagram-testimonials"
 
 export default function TripCrateLanding() {
 	return (
@@ -42,6 +43,8 @@ export default function TripCrateLanding() {
 
 				{/* New Influencer/Creator Section */}
 				<InfluencerSection />
+
+				<InstagramTestimonials />
 
 				{/* New Testimonials Section */}
 				<TestimonialsSection />

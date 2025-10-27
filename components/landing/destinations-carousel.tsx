@@ -1,14 +1,12 @@
 "use client"
 
 import { motion } from "framer-motion"
-import { Star, MapPin, Calendar, Users, ArrowRight } from "lucide-react"
+import { 
+    Star, MapPin, Calendar, Users, ArrowRight
+} from "lucide-react"
 import Image from "next/image"
 import {
-	Carousel,
-	CarouselContent,
-	CarouselItem,
-	CarouselNext,
-	CarouselPrevious,
+	Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 } from "@/components/ui/carousel"
 
 const destinations = [

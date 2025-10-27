@@ -5,9 +5,16 @@ import { Equal, Moon, Sun, LogOut } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/liquid-glass-button'
-import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose } from '@/components/ui/sheet'
-import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
+import { 
+    Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose 
+} from '@/components/ui/sheet'
+import { 
+    Avatar, AvatarFallback, AvatarImage 
+} from '@/components/ui/avatar'
+import { 
+    DropdownMenu, DropdownMenuContent, DropdownMenuItem, 
+    DropdownMenuSeparator, DropdownMenuTrigger 
+} from '@/components/ui/dropdown-menu'
 import Image from 'next/image'
 import { useTheme } from 'next-themes'
 import { useSession, signOut } from 'next-auth/react'
@@ -73,11 +80,13 @@ export const Header = () => {
                             <div className="flex items-center justify-start gap-2 p-2">
                                 <div className="flex flex-col space-y-1 leading-none">
                                     {session.user.name && <p className="font-medium">{session.user.name}</p>}
-                                    {session.user.email && (
+                                    {
+                                    session.user.email && (
                                         <p className="w-[200px] truncate text-sm text-muted-foreground">
                                             {session.user.email}
                                         </p>
-                                    )}
+                                    )
+                                    }
                                 </div>
                             </div>
                             <DropdownMenuSeparator />
