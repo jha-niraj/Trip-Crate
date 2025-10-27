@@ -55,7 +55,7 @@ export function TestimonialsSection() {
 						Students <span className="text-teal-600 dark:text-teal-400">Love</span> TripCrate
 					</h2>
 					<p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-						Don't just take our word for it. Here's what real students are saying.
+						Don&apos;t just take our word for it. Here&apos;s what real students are saying.
 					</p>
 				</motion.div>
 

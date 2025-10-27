@@ -40,7 +40,7 @@ export const TestimonialsColumn = ({
 						className="p-10 rounded-3xl bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-800 shadow-lg shadow-teal-500/10 dark:shadow-teal-500/5"
 					>
 						<p className="text-neutral-600 dark:text-neutral-300 mb-6 leading-relaxed">
-							"{testimonial.quote}"
+							&ldquo;{testimonial.quote}&rdquo;
 						</p>
 						<div className="flex items-center gap-3">
 							<Image

@@ -45,7 +45,7 @@ const Feature = ({
 }: {
 	title: string
 	description: string
-	icon: any
+	icon: React.ComponentType<{ className?: string }>
 	index: number
 }) => {
 	return (

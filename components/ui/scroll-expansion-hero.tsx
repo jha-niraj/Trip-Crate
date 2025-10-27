@@ -5,8 +5,6 @@ import {
   useRef,
   useState,
   ReactNode,
-  TouchEvent as ReactTouchEvent,
-  WheelEvent as ReactWheelEvent,
 } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
