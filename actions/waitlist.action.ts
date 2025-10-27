@@ -3,8 +3,16 @@
 import { prisma } from "@/lib/prisma"
 import type { ActionResult } from "@/lib/utils"
 
-export async function joinWaitlist(email: string): Promise<ActionResult<string>> {
+export async function joinWaitlist(email: string, collegeName?: string): Promise<ActionResult<string>> {
 	try {
+		// Basic email validation
+		if (!email || !email.includes("@")) {
+			return {
+				success: false,
+				message: "Please enter a valid email address",
+			}
+		}
+
 		// Check if email already exists
 		const existingEntry = await prisma.waitlist.findUnique({
 			where: { email },
@@ -19,7 +27,10 @@ export async function joinWaitlist(email: string): Promise<ActionResult<string>>
 
 		// Add to waitlist
 		await prisma.waitlist.create({
-			data: { email },
+			data: { 
+				email,
+				collegeName: collegeName || null,
+			},
 		})
 
 		return {

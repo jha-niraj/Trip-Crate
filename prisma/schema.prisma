@@ -61,9 +61,10 @@ model Account {
 }
 
 model Waitlist {
-    id        String   @id @default(cuid())
-    email     String   @unique
-    createdAt DateTime @default(now())
+    id          String   @id @default(cuid())
+    email       String   @unique
+    collegeName String?
+    createdAt   DateTime @default(now())
 
     @@index([email])
     @@map("waitlist")
