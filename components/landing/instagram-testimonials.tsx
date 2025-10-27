@@ -9,6 +9,7 @@ import {
 	CarouselNext,
 	CarouselPrevious,
 } from "@/components/ui/carousel"
+import Image from "next/image"
 
 // Placeholder testimonials - User will need to provide actual Instagram reel URLs
 const testimonials = [
@@ -137,11 +138,13 @@ export function InstagramTestimonials() {
 
 											{/* Image */}
 											<div className="relative aspect-[3/4] overflow-hidden bg-gray-100 dark:bg-gray-900">
-												<img
+												<Image
 													src={post.image}
 													alt={post.location}
 													className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-												/>
+                                                    height={100}
+                                                    width={100}
+                                                />
 												
 												{/* Play button overlay */}
 												<div className="absolute inset-0 bg-black/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">

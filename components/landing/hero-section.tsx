@@ -66,6 +66,7 @@ export function HeroSection() {
 				toast.error(result.message || "Something went wrong")
 			}
 		} catch (error) {
+            console.log("Failed to join waitlist: " + error);
 			toast.error("Failed to join waitlist. Please try again.")
 		} finally {
 			setIsLoading(false)
