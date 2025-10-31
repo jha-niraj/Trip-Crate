@@ -34,7 +34,7 @@ export function SolutionSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.1 }}
                         viewport={{ once: true }}
-                        className="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl border border-gray-200 dark:border-gray-700 hover:shadow-2xl transition-shadow"
+                        className="bg-white dark:bg-neutral-900 shadow-2xl rounded-xl p-8 border border-gray-200 dark:border-gray-700 hover:shadow-2xl transition-shadow"
                     >
                         <div className="relative h-48 rounded-2xl overflow-hidden mb-6">
                             <Image
@@ -63,7 +63,7 @@ export function SolutionSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
                         viewport={{ once: true }}
-                        className="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl border border-gray-200 dark:border-gray-700 hover:shadow-2xl transition-shadow"
+                        className="bg-white dark:bg-neutral-900 shadow-2xl rounded-xl p-8 border border-gray-200 dark:border-gray-700 hover:shadow-2xl transition-shadow"
                     >
                         <div className="relative h-48 rounded-2xl overflow-hidden mb-6">
                             <Image
@@ -107,7 +107,7 @@ export function SolutionSection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.3 }}
                         viewport={{ once: true }}
-                        className="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl border border-gray-200 dark:border-gray-700 hover:shadow-2xl transition-shadow"
+                        className="bg-white dark:bg-neutral-900 shadow-2xl rounded-xl p-8 border border-gray-200 dark:border-gray-700 hover:shadow-2xl transition-shadow"
                     >
                         <div className="relative h-48 rounded-2xl overflow-hidden mb-6">
                             <Image
@@ -137,7 +137,7 @@ export function SolutionSection() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
-                    className="relative bg-gradient-to-r from-teal-600 via-emerald-600 to-cyan-600 rounded-3xl p-12 text-white shadow-2xl overflow-hidden"
+                    className="relative bg-white dark:bg-neutral-900 shadow-2xl rounded-xl p-12 text-black dark:text-white overflow-hidden"
                 >
                     <div className="absolute inset-0 opacity-10">
                         <div className="absolute top-0 left-0 w-64 h-64 bg-white rounded-full blur-3xl" />

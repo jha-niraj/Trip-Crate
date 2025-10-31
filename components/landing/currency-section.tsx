@@ -99,11 +99,10 @@ export function CurrencySection() {
                                     whileHover={{ scale: 1.05 }}
                                     className="group relative"
                                 >
-                                    <div className="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl border border-gray-200 dark:border-gray-700 hover:shadow-2xl transition-all">
+                                    <div className="bg-white dark:bg-neutral-900 shadow-2xl rounded-xl p-8 border border-gray-200 dark:border-gray-700 hover:shadow-2xl transition-all">
                                         <div className={`inline-flex p-4 rounded-2xl bg-gradient-to-br ${way.gradient} shadow-lg mb-6`}>
                                             <way.icon className="w-8 h-8 text-white" />
                                         </div>
-
                                         <h4 className="text-2xl font-bold mb-3 text-gray-900 dark:text-white">{way.title}</h4>
                                         <p className="text-gray-600 dark:text-gray-400 mb-4">{way.description}</p>
 
@@ -151,7 +150,7 @@ export function CurrencySection() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.5, delay: index * 0.1 }}
                                     viewport={{ once: true }}
-                                    className="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl border border-gray-200 dark:border-gray-700"
+                                    className="bg-white dark:bg-neutral-900 shadow-2xl rounded-xl p-8 border border-gray-200 dark:border-gray-700"
                                 >
                                     <div className={`w-16 h-16 rounded-2xl bg-${option.color}-100 dark:bg-${option.color}-900/30 flex items-center justify-center mb-6`}>
                                         <option.icon className={`w-8 h-8 text-${option.color}-600 dark:text-${option.color}-400`} />

@@ -67,7 +67,7 @@ const testimonials = [
 
 export function InstagramTestimonials() {
     return (
-        <section className="py-20 md:py-32 px-4 md:px-8 bg-gradient-to-br from-pink-50 via-purple-50 to-blue-50 dark:from-gray-900 dark:via-purple-950/20 dark:to-gray-900">
+        <section className="py-20 md:py-32 px-4 md:px-8 bg-white dark:bg-neutral-950">
             <div className="max-w-7xl mx-auto">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -112,7 +112,7 @@ export function InstagramTestimonials() {
                                             whileHover={{ y: -8 }}
                                             className="group relative"
                                         >
-                                            <div className="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700">
+                                            <div className="bg-white dark:bg-neutral-900 shadow-2xl rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700">
                                                 <div className="flex items-center gap-3 p-4 border-b border-gray-200 dark:border-gray-700">
                                                     <div className="w-10 h-10 rounded-full bg-gradient-to-br from-pink-500 via-purple-500 to-blue-500 p-0.5">
                                                         <div className="w-full h-full rounded-full bg-white dark:bg-gray-800 flex items-center justify-center">
@@ -180,7 +180,7 @@ export function InstagramTestimonials() {
                     viewport={{ once: true }}
                     className="mt-16 text-center"
                 >
-                    <div className="bg-gradient-to-r from-pink-600 via-purple-600 to-blue-600 rounded-3xl p-12 text-white shadow-2xl relative overflow-hidden">
+                    <div className="bg-white dark:bg-neutral-900 shadow-2xl rounded-xl p-12 text-black dark:text-white relative overflow-hidden">
                         <div className="absolute inset-0 opacity-20">
                             <div className="absolute top-0 left-0 w-64 h-64 bg-white rounded-full blur-3xl" />
                             <div className="absolute bottom-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl" />

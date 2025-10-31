@@ -60,6 +60,16 @@ model Account {
     @@map("accounts")
 }
 
+model Newsletter {
+    id           String   @id @default(cuid())
+    email        String   @unique
+    subscribedAt DateTime @default(now())
+    isActive     Boolean  @default(true)
+    
+    @@index([email])
+    @@index([subscribedAt])
+}
+
 model Waitlist {
     id          String   @id @default(cuid())
     email       String   @unique

@@ -32,7 +32,7 @@ export function ProblemSection() {
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6 }}
                         viewport={{ once: true }}
-                        className="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl border border-gray-200 dark:border-gray-700"
+                        className="bg-white dark:bg-neutral-900 shadow-2xl rounded-xl p-8 border border-gray-200 dark:border-gray-700"
                     >
                         <div className="flex items-start gap-4 mb-6">
                             <div className="flex-shrink-0 w-12 h-12 rounded-full bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
@@ -62,7 +62,7 @@ export function ProblemSection() {
                         whileInView={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.6 }}
                         viewport={{ once: true }}
-                        className="bg-white dark:bg-gray-800 rounded-3xl p-8 shadow-xl border border-red-200 dark:border-red-800"
+                        className="bg-white dark:bg-neutral-900 shadow-2xl rounded-xl p-8 border border-red-200 dark:border-red-800"
                     >
                         <div className="flex items-start gap-4 mb-6">
                             <div className="flex-shrink-0 w-12 h-12 rounded-full bg-red-100 dark:bg-red-900/30 flex items-center justify-center">
@@ -103,7 +103,7 @@ export function ProblemSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.3 }}
                     viewport={{ once: true }}
-                    className="text-center bg-gradient-to-r from-teal-600 to-emerald-600 rounded-3xl p-12 text-white shadow-2xl"
+                    className="text-center bg-white dark:bg-neutral-900 shadow-2xl rounded-xl p-12 text-black dark:text-white"
                 >
                     <h3 className="text-3xl md:text-4xl font-bold mb-4">We're Not Here to Sell Dreams.</h3>
                     <p className="text-xl mb-6 opacity-90">We're here to sell doable trips.</p>

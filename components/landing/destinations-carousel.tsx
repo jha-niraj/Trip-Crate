@@ -8,6 +8,7 @@ import Image from "next/image"
 import {
 	Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious
 } from "@/components/ui/carousel"
+import { Button } from "../ui/liquid-glass-button"
 
 const destinations = [
 	{
@@ -121,7 +122,8 @@ export function DestinationsCarousel() {
 						className="w-full"
 					>
 						<CarouselContent className="-ml-4">
-							{destinations.map((destination, index) => (
+							{
+							destinations.map((destination, index) => (
 								<CarouselItem key={destination.name} className="pl-4 md:basis-1/2 lg:basis-1/3">
 									<motion.div
 										initial={{ opacity: 0, scale: 0.95 }}
@@ -131,8 +133,7 @@ export function DestinationsCarousel() {
 										whileHover={{ y: -8 }}
 										className="group relative h-full"
 									>
-										<div className="bg-white dark:bg-gray-800 rounded-3xl overflow-hidden shadow-xl border border-gray-200 dark:border-gray-700 h-full flex flex-col">
-											{/* Image */}
+										<div className="bg-white dark:bg-neutral-900 shadow-2xl rounded-xl overflow-hidden border border-gray-200 dark:border-gray-700 h-full flex flex-col">
 											<div className="relative h-64 overflow-hidden">
 												<Image
 													src={destination.image}
@@ -141,16 +142,13 @@ export function DestinationsCarousel() {
 													className="object-cover group-hover:scale-110 transition-transform duration-500"
 												/>
 												<div className={`absolute inset-0 bg-gradient-to-t ${destination.gradient} to-transparent opacity-60`} />
-												
-												{/* Overlay content */}
-												<div className="absolute top-4 right-4">
+																								<div className="absolute top-4 right-4">
 													<div className="flex items-center gap-1 bg-white/90 dark:bg-gray-900/90 backdrop-blur-sm px-3 py-1.5 rounded-full">
 														<Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
 														<span className="font-bold text-gray-900 dark:text-white">{destination.rating}</span>
 														<span className="text-sm text-gray-600 dark:text-gray-400">({destination.reviews})</span>
 													</div>
 												</div>
-												
 												<div className="absolute bottom-4 left-4 right-4">
 													<h3 className="text-3xl font-bold text-white mb-1">{destination.name}</h3>
 													<div className="flex items-center gap-2 text-white/90">
@@ -159,20 +157,19 @@ export function DestinationsCarousel() {
 													</div>
 												</div>
 											</div>
-
-											{/* Content */}
 											<div className="p-6 flex-1 flex flex-col">
 												<div className="flex flex-wrap gap-2 mb-4">
-													{destination.highlights.map((highlight) => (
+													{
+													destination.highlights.map((highlight) => (
 														<span
 															key={highlight}
 															className="px-3 py-1 text-xs font-semibold bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 rounded-full"
 														>
 															{highlight}
 														</span>
-													))}
+													))
+													}
 												</div>
-
 												<div className="grid grid-cols-2 gap-4 mb-6">
 													<div>
 														<div className="flex items-center gap-2 text-gray-600 dark:text-gray-400 mb-1">
@@ -189,7 +186,6 @@ export function DestinationsCarousel() {
 														<p className="font-bold text-gray-900 dark:text-white">{destination.difficulty}</p>
 													</div>
 												</div>
-
 												<div className="mt-auto">
 													<div className="flex items-center justify-between mb-4">
 														<div>
@@ -198,7 +194,6 @@ export function DestinationsCarousel() {
 														</div>
 														<div className="text-sm text-gray-600 dark:text-gray-400">per person</div>
 													</div>
-													
 													<button className="w-full bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-700 hover:to-emerald-700 text-white font-semibold py-3 px-6 rounded-xl flex items-center justify-center gap-2 transition-all group-hover:shadow-lg">
 														<span>View Details</span>
 														<ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
@@ -208,13 +203,13 @@ export function DestinationsCarousel() {
 										</div>
 									</motion.div>
 								</CarouselItem>
-							))}
+							))
+							}
 						</CarouselContent>
 						<CarouselPrevious className="hidden md:flex -left-12" />
 						<CarouselNext className="hidden md:flex -right-12" />
 					</Carousel>
 				</motion.div>
-
 				<motion.div
 					initial={{ opacity: 0, y: 20 }}
 					whileInView={{ opacity: 1, y: 0 }}
@@ -225,10 +220,10 @@ export function DestinationsCarousel() {
 					<p className="text-lg text-gray-600 dark:text-gray-400 mb-6">
 						All trips verified by students. All budgets broken down. No surprises.
 					</p>
-					<button className="inline-flex items-center gap-2 px-8 py-4 bg-white dark:bg-gray-800 border-2 border-teal-600 dark:border-teal-400 text-teal-600 dark:text-teal-400 font-bold rounded-xl hover:bg-teal-50 dark:hover:bg-teal-950/30 transition-colors">
+					<Button className="inline-flex items-center gap-2 px-8 py-4 bg-white dark:bg-neutral-900 shadow-2xl rounded-xl border-2 border-teal-600 dark:border-teal-400 text-teal-600 dark:text-teal-400 font-bold hover:bg-teal-50 dark:hover:bg-teal-950/30 transition-colors">
 						<span>Explore All Destinations</span>
 						<ArrowRight className="w-5 h-5" />
-					</button>
+					</Button>
 				</motion.div>
 			</div>
 		</section>

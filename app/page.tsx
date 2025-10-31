@@ -22,34 +22,15 @@ export default function TripCrateLanding() {
 		<SmoothScroll>
 			<div className="w-full bg-background text-foreground">
 				<Header />
-
-				{/* New Modern Hero Section */}
 				<HeroSection />
-
-				{/* New Problem Section with Images */}
 				<ProblemSection />
-
-				{/* New Solution Section with Images */}
 				<SolutionSection />
-
-				{/* New Features Section with Hover Effects */}
 				<FeaturesSection />
-
-				{/* New Destinations Carousel */}
 				<DestinationsCarousel />
-
-				{/* New Currency/Rewards Section */}
 				<CurrencySection />
-
-				{/* New Influencer/Creator Section */}
 				<InfluencerSection />
-
 				<InstagramTestimonials />
-
-				{/* New Testimonials Section */}
 				<TestimonialsSection />
-
-				{/* How It Works Section */}
 				<section className="py-20 md:py-32 px-4 md:px-8 bg-white dark:bg-neutral-950">
 					<div className="max-w-7xl mx-auto">
 						<motion.h2
@@ -66,60 +47,54 @@ export default function TripCrateLanding() {
 						</p>
 
 						<div className="grid md:grid-cols-3 gap-12 relative">
-							{/* Connection Lines */}
 							<div className="hidden md:block absolute top-1/3 left-0 right-0 h-0.5 bg-gradient-to-r from-transparent via-teal-500/30 to-transparent" />
+							{
+								[
+									{
+										step: "1",
+										title: "Pick Your College",
+										desc: "Select your university and we'll show you nearby destinations optimized for weekend getaways.",
+										icon: "🎓",
+									},
+									{
+										step: "2",
+										title: "Choose Your Vibe",
+										desc: "Solo adventure? Squad trip? Weekend escape? We've got itineraries for every mood.",
+										icon: "✨",
+									},
+									{
+										step: "3",
+										title: "Book or Wing It",
+										desc: "Get instant access to hotels, transport, and food spots with exclusive student discounts.",
+										icon: "🚀",
+									},
+								].map((item, idx) => (
+									<motion.div
+										key={idx}
+										initial={{ opacity: 0, y: 30 }}
+										whileInView={{ opacity: 1, y: 0 }}
+										transition={{ duration: 0.6, delay: idx * 0.2 }}
+										viewport={{ once: true }}
+										className="relative text-center group"
+									>
+										<div className="absolute inset-0 bg-white dark:bg-neutral-900 shadow-2xl rounded-xl blur-xl group-hover:blur-2xl transition-all opacity-0 group-hover:opacity-100" />
 
-							{[
-								{
-									step: "1",
-									title: "Pick Your College",
-									desc: "Select your university and we'll show you nearby destinations optimized for weekend getaways.",
-									icon: "🎓",
-								},
-								{
-									step: "2",
-									title: "Choose Your Vibe",
-									desc: "Solo adventure? Squad trip? Weekend escape? We've got itineraries for every mood.",
-									icon: "✨",
-								},
-								{
-									step: "3",
-									title: "Book or Wing It",
-									desc: "Get instant access to hotels, transport, and food spots with exclusive student discounts.",
-									icon: "🚀",
-								},
-							].map((item, idx) => (
-								<motion.div
-									key={idx}
-									initial={{ opacity: 0, y: 30 }}
-									whileInView={{ opacity: 1, y: 0 }}
-									transition={{ duration: 0.6, delay: idx * 0.2 }}
-									viewport={{ once: true }}
-									className="relative text-center group"
-								>
-									{/* Glow Effect */}
-									<div className="absolute inset-0 bg-gradient-to-br from-teal-500/10 to-emerald-500/10 rounded-3xl blur-xl group-hover:blur-2xl transition-all opacity-0 group-hover:opacity-100" />
-
-									<div className="relative bg-white dark:bg-gray-800 p-8 rounded-3xl border border-gray-200 dark:border-gray-700 shadow-lg group-hover:shadow-2xl transition-all">
-										{/* Step Number Badge */}
-										<div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-500 to-emerald-500 text-white font-bold text-2xl mb-4 shadow-xl group-hover:scale-110 transition-transform">
-											{item.step}
+										<div className="relative bg-white dark:bg-neutral-900 shadow-2xl rounded-xl p-8 border border-gray-200 dark:border-gray-700 group-hover:shadow-2xl transition-all">
+											<div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-teal-500 to-emerald-500 text-white font-bold text-2xl mb-4 shadow-xl group-hover:scale-110 transition-transform">
+												{item.step}
+											</div>
+											<div className="text-5xl mb-4 group-hover:scale-110 transition-transform">
+												{item.icon}
+											</div>
+											<h3 className="text-2xl font-bold mb-3 group-hover:text-teal-600 transition-colors">
+												{item.title}
+											</h3>
+											<p className="text-foreground/70 leading-relaxed">{item.desc}</p>
 										</div>
-
-										{/* Icon */}
-										<div className="text-5xl mb-4 group-hover:scale-110 transition-transform">
-											{item.icon}
-										</div>
-
-										<h3 className="text-2xl font-bold mb-3 group-hover:text-teal-600 transition-colors">
-											{item.title}
-										</h3>
-										<p className="text-foreground/70 leading-relaxed">{item.desc}</p>
-									</div>
-								</motion.div>
-							))}
+									</motion.div>
+								))
+							}
 						</div>
-
 						<motion.div
 							initial={{ opacity: 0, y: 20 }}
 							whileInView={{ opacity: 1, y: 0 }}
@@ -133,16 +108,12 @@ export default function TripCrateLanding() {
 						</motion.div>
 					</div>
 				</section>
-
-				{/* Final CTA Section */}
 				<section className="py-20 md:py-32 px-4 md:px-8 relative overflow-hidden">
-					{/* Animated Background */}
 					<div className="absolute inset-0 bg-gradient-to-br from-teal-500/10 via-emerald-500/10 to-cyan-500/10" />
 					<div className="absolute inset-0">
 						<div className="absolute top-1/4 left-1/4 w-96 h-96 bg-teal-500/20 rounded-full blur-3xl animate-pulse" />
 						<div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-emerald-500/20 rounded-full blur-3xl animate-pulse delay-1000" />
 					</div>
-
 					<div className="max-w-5xl mx-auto text-center relative z-10">
 						<motion.div
 							initial={{ opacity: 0, y: 20 }}
@@ -206,7 +177,6 @@ export default function TripCrateLanding() {
 						</motion.div>
 					</div>
 				</section>
-
 				<Footer />
 			</div>
 		</SmoothScroll>

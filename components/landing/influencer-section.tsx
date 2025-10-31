@@ -110,7 +110,7 @@ export function InfluencerSection() {
                                         whileInView={{ opacity: 1, x: 0 }}
                                         transition={{ duration: 0.4, delay: index * 0.1 }}
                                         viewport={{ once: true }}
-                                        className="flex gap-4 p-6 bg-white dark:bg-gray-800 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-700"
+                                        className="flex gap-4 p-6 bg-white dark:bg-neutral-900 shadow-2xl rounded-xl border border-gray-200 dark:border-gray-700"
                                     >
                                         <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center">
                                             <benefit.icon className="w-6 h-6 text-white" />
@@ -138,7 +138,7 @@ export function InfluencerSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6 }}
                     viewport={{ once: true }}
-                    className="bg-white dark:bg-gray-800 rounded-3xl p-12 shadow-2xl border border-gray-200 dark:border-gray-700"
+                    className="bg-white dark:bg-neutral-900 shadow-2xl rounded-xl p-12 border border-gray-200 dark:border-gray-700"
                 >
                     <h3 className="text-3xl md:text-4xl font-bold mb-12 text-center text-gray-900 dark:text-white">
                         How the Charter Works
