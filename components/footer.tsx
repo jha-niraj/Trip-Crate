@@ -19,28 +19,28 @@ export function Footer() {
     };
 
     const quickLinks = [
-        { name: "Home", href: "/organizer" },
-        { name: "Features", href: "/organizer#features" },
-        { name: "Event Types", href: "/organizer#event-types" },
-        { name: "Pricing", href: "/organizer#certificates" },
-        { name: "Testimonials", href: "/organizer#testimonials" },
+        { name: "Home", href: "/" },
+        { name: "Explore", href: "/explore" },
+        { name: "Destinations", href: "/explore#destinations" },
+        { name: "Weekend Trips", href: "/explore#weekend-trips" },
+        { name: "Community", href: "/explore#community" },
     ];
 
     const resources = [
-        { name: "Documentation", href: "/docs", comingSoon: true },
-        { name: "API Reference", href: "/docs/api", comingSoon: true },
+        { name: "Travel Guides", href: "/guides", comingSoon: true },
+        { name: "Trip Planner", href: "/planner", comingSoon: true },
         { name: "Help Center", href: "/help", comingSoon: true },
-        { name: "Video Tutorials", href: "/tutorials", comingSoon: true },
-        { name: "Best Practices", href: "/best-practices", comingSoon: true },
-        { name: "Case Studies", href: "/case-studies", comingSoon: true },
+        { name: "Travel Tips", href: "/tips", comingSoon: true },
+        { name: "Packing Lists", href: "/packing", comingSoon: true },
+        { name: "Travel Stories", href: "/stories", comingSoon: true },
     ];
 
     const eventTypes = [
-        { name: "Hackathons", href: "/organizer#event-types", icon: Calendar },
-        { name: "Job Fairs", href: "/organizer#event-types", icon: Users },
-        { name: "Cultural Events", href: "/organizer#event-types", icon: TrendingUp },
-        { name: "Workshops", href: "/organizer#event-types", icon: Shield },
-        { name: "Conferences", href: "/organizer#event-types", icon: Award },
+        { name: "Adventure Trips", href: "/explore#activities", icon: Calendar },
+        { name: "Group Travel", href: "/explore#group-trips", icon: Users },
+        { name: "Weekend Getaways", href: "/explore#weekend", icon: TrendingUp },
+        { name: "Budget Travel", href: "/explore#budget", icon: Shield },
+        { name: "Solo Travel", href: "/explore#solo", icon: Award },
     ];
 
     const company = [
@@ -60,17 +60,17 @@ export function Footer() {
     ];
 
     const socialLinks = [
-        { name: "Facebook", icon: Facebook, href: "https://facebook.com/eventeye" },
-        { name: "Twitter", icon: Twitter, href: "https://twitter.com/eventeye" },
-        { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com/company/eventeye" },
-        { name: "Instagram", icon: Instagram, href: "https://instagram.com/eventeye" },
-        { name: "YouTube", icon: Youtube, href: "https://youtube.com/@eventeye" },
+        { name: "Facebook", icon: Facebook, href: "https://facebook.com/tripcrate" },
+        { name: "Twitter", icon: Twitter, href: "https://twitter.com/tripcrate" },
+        { name: "LinkedIn", icon: Linkedin, href: "https://linkedin.com/company/tripcrate" },
+        { name: "Instagram", icon: Instagram, href: "https://instagram.com/tripcrate" },
+        { name: "YouTube", icon: Youtube, href: "https://youtube.com/@tripcrate" },
     ];
 
     const features = [
-        { icon: Ticket, text: "100% Secure Payments" },
-        { icon: Shield, text: "24/7 Support" },
-        { icon: Award, text: "Trusted by 10,000+ Organizers" },
+        { icon: Ticket, text: "100% Secure Bookings" },
+        { icon: Shield, text: "24/7 Travel Support" },
+        { icon: Award, text: "Trusted by 10,000+ Travelers" },
     ];
 
     const scrollToTop = () => {
@@ -84,7 +84,7 @@ export function Footer() {
                     <div>
                         <h3 className="text-2xl font-bold mb-2">Stay Updated</h3>
                         <p className="text-muted-foreground">
-                            Get the latest updates on new features, best practices, and event management tips
+                            Get the latest travel deals, destination guides, and adventure tips
                         </p>
                     </div>
                     <div>
@@ -112,7 +112,7 @@ export function Footer() {
                         </ul>
                     </div>
                     <div>
-                        <h4 className="font-semibold mb-4 text-foreground">Event Types</h4>
+                        <h4 className="font-semibold mb-4 text-foreground">Trip Types</h4>
                         <ul className="space-y-3">
                             {
                                 eventTypes.map((type) => (
@@ -246,21 +246,21 @@ export function Footer() {
                         <ul className="space-y-3">
                             <li className="flex items-start gap-2 text-sm text-muted-foreground">
                                 <Mail className="w-4 h-4 mt-0.5 shrink-0 text-primary" />
-                                <a href="mailto:support@eventeye.com" className="hover:text-primary transition-colors">
-                                    support@eventeye.com
+                                <a href="mailto:support@tripcrate.com" className="hover:text-primary transition-colors">
+                                    support@tripcrate.com
                                 </a>
                             </li>
                             <li className="flex items-start gap-2 text-sm text-muted-foreground">
                                 <Phone className="w-4 h-4 mt-0.5 shrink-0 text-primary" />
-                                <a href="tel:+1234567890" className="hover:text-primary transition-colors">
-                                    +1 (234) 567-890
+                                <a href="tel:+919876543210" className="hover:text-primary transition-colors">
+                                    +91 98765 43210
                                 </a>
                             </li>
                             <li className="flex items-start gap-2 text-sm text-muted-foreground">
                                 <MapPin className="w-4 h-4 mt-0.5 shrink-0 text-primary" />
                                 <span>
-                                    123 Event Street<br />
-                                    Tech City, TC 12345
+                                    Himachal Pradesh<br />
+                                    India
                                 </span>
                             </li>
                         </ul>
@@ -294,13 +294,13 @@ export function Footer() {
                             <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center">
                                 <Calendar className="w-5 h-5 text-white" />
                             </div>
-                            <span className="text-xl font-bold">EventEye</span>
+                            <span className="text-xl font-bold">TripCrate</span>
                         </div>
                         <p className="text-sm text-muted-foreground">
-                            © {new Date().getFullYear()} EventEye. All rights reserved.
+                            © {new Date().getFullYear()} TripCrate. All rights reserved.
                         </p>
                         <p className="text-xs text-muted-foreground mt-1">
-                            Empowering event organizers worldwide
+                            Empowering student travelers worldwide
                         </p>
                     </div>
                     <div className="flex items-center gap-4">
@@ -324,7 +324,7 @@ export function Footer() {
                     </div>
                 </div>
                 <div className="mt-8 pt-6 border-t border-border text-center">
-                    <p className="text-xs text-muted-foreground mb-3">Trusted Payment Partners</p>
+                    <p className="text-xs text-muted-foreground mb-3">Trusted Booking & Payment Partners</p>
                     <div className="flex items-center justify-center gap-6 flex-wrap">
                         <div className="px-4 py-2 rounded-lg bg-card border border-border text-sm font-medium text-muted-foreground">
                             Razorpay
@@ -342,7 +342,7 @@ export function Footer() {
                 </div>
                 <div className="mt-8 border-t border-neutral-200/20 dark:border-neutral-800/20 pt-6 flex flex-col md:flex-row items-center justify-between gap-4">
                     <p className="text-xs text-neutral-500 dark:text-neutral-400">
-                        © {new Date().getFullYear()} EventEye. All rights reserved.
+                        © {new Date().getFullYear()} TripCrate. All rights reserved.
                     </p>
                     <div className="flex items-center gap-3">
                         <Button
@@ -354,7 +354,7 @@ export function Footer() {
                             <ArrowUp className="h-4 w-4 mr-1" />
                             Back to Top
                         </Button>
-                        <Link href="/signin?ref=organizer">
+                        <Link href="/signin?ref=footer">
                             <Button
                                 variant="ghost"
                                 className="text-neutral-700 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white rounded-2xl"
@@ -362,9 +362,9 @@ export function Footer() {
                                 Sign In
                             </Button>
                         </Link>
-                        <Link href="/signup?ref=organizer">
+                        <Link href="/signup?ref=footer">
                             <Button className="bg-neutral-900 hover:bg-neutral-800 dark:bg-white dark:hover:bg-neutral-100 text-white dark:text-black rounded-2xl font-semibold transition-all duration-200">
-                                Get Started
+                                Start Exploring
                             </Button>
                         </Link>
                     </div>
