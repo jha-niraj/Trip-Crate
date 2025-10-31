@@ -10,7 +10,7 @@ import { NewsletterSubscription } from "@/components/landing/newslettersubscript
 import { Button } from "@/components/ui/button";
 import { toast } from "sonner";
 
-export function OrganizerFooterSection() {
+export function Footer() {
     const handleComingSoon = (featureName: string) => {
         toast.info("Coming Soon!", {
             description: `${featureName} is currently under development. We'll notify you when it's ready!`,
