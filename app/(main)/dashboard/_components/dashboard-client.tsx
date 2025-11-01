@@ -8,11 +8,37 @@ import { Progress } from "@/components/ui/progress"
 import { 
     Plane, Camera, MessageSquare, MessageCircle, Coins, 
     TrendingUp, Calendar, MapPin, Hotel, Clock, 
-    CheckCircle2, AlertCircle, ArrowRight, Star,
+    CheckCircle2, ArrowRight, Star,
     Sparkles, Trophy, Gift, Target
 } from "lucide-react"
 import { motion } from "framer-motion"
 import Image from "next/image"
+
+interface Itinerary {
+    id: string
+    destination: string
+    startDate: string
+    endDate: string
+    status: string
+    budget: number
+    image: string
+    activities: number
+}
+
+interface Booking {
+    id: string
+    type: string
+    name: string
+    date: string
+    price: number
+    status: string
+    image: string
+}
+
+interface Earnings {
+    monthlyBreakdown: Array<{ month: string; coins: number; posts: number; photos: number }>
+    recentActivities: Array<{ action: string; coins: number; date: string }>
+}
 
 interface DashboardClientProps {
     user: {
@@ -27,9 +53,9 @@ interface DashboardClientProps {
         coinsEarned: number
         createdAt: Date
     }
-    itineraries: any[]
-    bookings: any[]
-    earnings: any
+    itineraries: Itinerary[]
+    bookings: Booking[]
+    earnings: Earnings
 }
 
 export function DashboardClient({ user, itineraries, bookings, earnings }: DashboardClientProps) {
@@ -69,9 +95,8 @@ export function DashboardClient({ user, itineraries, bookings, earnings }: Dashb
     ]
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-teal-50 dark:from-slate-950 dark:via-neutral-950 dark:to-slate-900">
+        <div className="min-h-screen bg-white dark:bg-neutral-950">
             <div className="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8 space-y-6">
-                {/* Welcome Header */}
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -347,8 +372,8 @@ export function DashboardClient({ user, itineraries, bookings, earnings }: Dashb
                                         <Target className="h-4 w-4 text-emerald-600" />
                                         Monthly Breakdown
                                     </h3>
-                                    {earnings.monthlyBreakdown.map((month: any, index: number) => (
-                                        <div key={index} className="space-y-2 p-4 rounded-lg bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-950/20 dark:to-teal-950/20 border border-emerald-200/50 dark:border-emerald-800/30">
+                                    {earnings.monthlyBreakdown.map((month, monthIndex) => (
+                                        <div key={monthIndex} className="space-y-2 p-4 rounded-lg bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-950/20 dark:to-teal-950/20 border border-emerald-200/50 dark:border-emerald-800/30">
                                             <div className="flex items-center justify-between">
                                                 <span className="text-sm font-medium text-neutral-700 dark:text-neutral-300">
                                                     {month.month}
@@ -374,8 +399,8 @@ export function DashboardClient({ user, itineraries, bookings, earnings }: Dashb
                                         Recent Activities
                                     </h3>
                                     <div className="space-y-3">
-                                        {earnings.recentActivities.map((activity: any, index: number) => (
-                                            <div key={index} className="flex items-center justify-between p-3 rounded-lg border border-neutral-200 dark:border-neutral-800 hover:bg-neutral-50 dark:hover:bg-neutral-800/50 transition-colors">
+                                        {earnings.recentActivities.map((activity, activityIndex) => (
+                                            <div key={activityIndex} className="flex items-center justify-between p-3 rounded-lg border border-neutral-200 dark:border-neutral-800 hover:bg-neutral-50 dark:hover:bg-neutral-800/50 transition-colors">
                                                 <div>
                                                     <p className="text-sm font-medium text-neutral-900 dark:text-neutral-100">
                                                         {activity.action}
@@ -408,7 +433,7 @@ export function DashboardClient({ user, itineraries, bookings, earnings }: Dashb
                         { label: "Book Hotel", icon: <Hotel />, color: "purple" },
                         { label: "Share Photos", icon: <Camera />, color: "pink" },
                         { label: "Write Review", icon: <Star />, color: "amber" }
-                    ].map((action, index) => (
+                    ].map((action) => (
                         <Button
                             key={action.label}
                             variant="outline"

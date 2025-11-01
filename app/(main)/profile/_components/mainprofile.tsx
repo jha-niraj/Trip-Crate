@@ -18,7 +18,6 @@ import {
     User, Settings, Calendar, MapPin, Globe, Trophy, MessageSquare, Shield, Plane, 
     Camera, MessageCircle, Coins, Sparkles
 } from "lucide-react"
-import Link from "next/link"
 import { ProfileUser, ProfileStats } from "@/types"
 
 interface MainProfileProps {
@@ -33,7 +32,7 @@ export function MainProfile({ user, stats, isGoogleUser }: MainProfileProps) {
 			<div className="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
 				<div className="flex flex-col lg:flex-row gap-8">
 					<div className="lg:w-1/3">
-						<Card className="sticky top-8 bg-white/80 dark:bg-black/80 backdrop-blur-xl border border-neutral-200/20 dark:border-neutral-800/20">
+						<Card className="sticky top-24 bg-white/80 dark:bg-black/80 backdrop-blur-xl border border-neutral-200/20 dark:border-neutral-800/20">
 							<CardHeader className="text-center">
 								<div className="relative mx-auto">
 									<Avatar className="h-32 w-32 mx-auto border-4 border-white dark:border-neutral-800 shadow-xl ring-4 ring-teal-500/20">

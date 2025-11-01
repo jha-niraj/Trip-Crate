@@ -1,6 +1,5 @@
 'use client'
 
-import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
 import Sidebar from '@/components/mainsidebar';
 import OnboardingCheck from '@/components/onboardingcheck';

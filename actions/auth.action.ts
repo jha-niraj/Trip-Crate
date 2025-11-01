@@ -21,7 +21,7 @@ function generateResetToken(): string {
 async function sendVerificationEmail(email: string, otp: string) {
     try {
         await resend.emails.send({
-            from: "TripCrate <noreply@coderz.nirajjha.xyz>",
+            from: "TripCrate <noreply@nirajjha.xyz>",
             to: email,
             subject: "Verify your email address - TripCrate",
             html: verificationEmailTemplate(otp)
@@ -39,7 +39,7 @@ async function sendPasswordResetEmail(email: string, resetToken: string) {
     
     try {
         await resend.emails.send({
-            from: "TripCrate <noreply@coderz.nirajjha.xyz>",
+            from: "TripCrate <noreply@nirajjha.xyz>",
             to: email,
             subject: "Reset your password - TripCrate",
             html: passwordResetEmailTemplate(resetUrl)
@@ -55,7 +55,7 @@ async function sendPasswordResetEmail(email: string, resetToken: string) {
 async function sendRegistrationSuccessEmail(email: string, name: string) {
     try {
         await resend.emails.send({
-            from: "TripCrate <noreply@coderz.nirajjha.xyz>",
+            from: "TripCrate <noreply@nirajjha.xyz>",
             to: email,
             subject: "Welcome to TripCrate - Registration Complete! 🎉",
             html: registrationSuccessEmailTemplate(name, email)

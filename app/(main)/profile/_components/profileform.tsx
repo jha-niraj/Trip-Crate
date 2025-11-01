@@ -21,6 +21,13 @@ interface ProfileFormProps {
 	user: ProfileUser
 }
 
+interface LocationResult {
+	city: string
+	state: string
+	country: string
+	id: string
+}
+
 export function ProfileForm({ user }: ProfileFormProps) {
 	const [isLoading, setIsLoading] = useState(false)
 	const [imageUploading, setImageUploading] = useState(false)
@@ -36,7 +43,7 @@ export function ProfileForm({ user }: ProfileFormProps) {
 
 	const [newInterest, setNewInterest] = useState("")
 	const [locationSearch, setLocationSearch] = useState("")
-	const [locationResults, setLocationResults] = useState<any[]>([])
+	const [locationResults, setLocationResults] = useState<LocationResult[]>([])
 	const [showLocationDropdown, setShowLocationDropdown] = useState(false)
 
 	// India location search with popular cities
@@ -88,7 +95,10 @@ export function ProfileForm({ user }: ProfileFormProps) {
 			const filtered = indianCities.filter(city =>
 				city.city.toLowerCase().includes(query.toLowerCase()) ||
 				city.state.toLowerCase().includes(query.toLowerCase())
-			).slice(0, 5)
+			).slice(0, 5).map((city, index) => ({
+				...city,
+				id: `${city.city}-${index}`
+			}))
 
 			setLocationResults(filtered)
 			setShowLocationDropdown(filtered.length > 0)
@@ -107,7 +117,7 @@ export function ProfileForm({ user }: ProfileFormProps) {
 		return () => clearTimeout(debounce)
 	}, [locationSearch])
 
-	const selectLocation = (city: any) => {
+	const selectLocation = (city: LocationResult) => {
 		const formatted = `${city.city}, ${city.state}, ${city.country}`
 		setFormData(prev => ({
 			...prev,
@@ -205,7 +215,6 @@ export function ProfileForm({ user }: ProfileFormProps) {
 
 	return (
 		<form onSubmit={handleSubmit} className="space-y-6">
-			{/* Profile Image Section */}
 			<Card className="bg-gradient-to-br from-teal-50 via-white to-emerald-50 dark:from-teal-950/20 dark:via-neutral-900/50 dark:to-emerald-950/20 border-teal-200/50 dark:border-teal-800/30">
 				<CardContent className="pt-6">
 					<div className="flex items-center gap-6">

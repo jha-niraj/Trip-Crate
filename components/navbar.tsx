@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { Equal, Moon, Sun, LogOut } from 'lucide-react'
+import { Equal, LogOut } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/liquid-glass-button'
@@ -16,7 +16,6 @@ import {
     DropdownMenuSeparator, DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu'
 import Image from 'next/image'
-import { useTheme } from 'next-themes'
 import { useSession, signOut } from 'next-auth/react'
 import { ThemeToggle } from './themeswitcher'
 import { usePathname } from 'next/navigation'
@@ -29,7 +28,6 @@ const menuItems = [
 
 export const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
-    const { theme, setTheme } = useTheme();
     const { data: session, status } = useSession();
     const pathname = usePathname();
 
