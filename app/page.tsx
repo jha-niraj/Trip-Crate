@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 import { ArrowRightIcon } from "@radix-ui/react-icons"
 import { CheckCircle2 } from "lucide-react"
-import { Header } from "@/components/navbar"
+import { Navbar } from "@/components/navbar"
 import Footer from "@/components/footer"
 import { HeroSection } from "@/components/landing/hero-section"
 import { ProblemSection } from "@/components/landing/problem-section"
@@ -22,7 +22,7 @@ export default function TripCrateLanding() {
 	return (
 		<SmoothScroll>
 			<div className="w-full bg-background text-foreground">
-				<Header />
+				<Navbar />
 				<HeroSection />
 				<ProblemSection />
 				<SolutionSection />

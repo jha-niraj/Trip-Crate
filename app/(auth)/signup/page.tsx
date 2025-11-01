@@ -9,18 +9,20 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Checkbox } from "@/components/ui/checkbox"
 import { ArrowRight } from "lucide-react"
-import { useRouter } from "next/navigation"
+import { useRouter, useSearchParams } from "next/navigation"
 import { signIn } from "next-auth/react"
 import { toast } from "sonner"
 import { registerUser } from "@/actions/auth.action"
 
 function SignUp() {
+    const searchParams = useSearchParams();
     const [name, setName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [isLoading, setIsLoading] = useState(false)
     const [isGoogleLoading, setIsGoogleLoading] = useState(false)
     const router = useRouter()
+    const callbackUrl = searchParams.get('callbackUrl') || '/dashboard'
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
@@ -163,9 +165,12 @@ function SignUp() {
                             </Button>
                         </form>
                         <div className="mt-8 text-center">
-                            <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                            <p className="text-sm text-gray-600 dark:text-gray-400">
                                 Already have an account?{" "}
-                                <Link href="/signin" className="text-neutral-900 dark:text-white hover:underline font-medium">
+                                <Link
+                                    href={`/signin${callbackUrl !== '/dashboard' ? `? callbackUrl=${encodeURIComponent(callbackUrl)}` : ''}`}
+                                    className="text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 hover:underline font-semibold"
+                                >
                                     Sign in
                                 </Link>
                             </p>

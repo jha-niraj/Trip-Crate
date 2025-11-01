@@ -23,6 +23,22 @@ model User {
     role                 Role      @default(USER)
     roleExplicitlyChosen Boolean   @default(false)
 	createdAt            DateTime  @default(now())
+    updatedAt            DateTime  @updatedAt
+
+    // Profile fields
+    tagline              String?
+    location             String?   // Will store as "City, State, Country"
+    interests            String?   // JSON array of interests
+    
+    // Travel stats
+    totalTrips           Int       @default(0)
+    totalPosts           Int       @default(0)
+    totalPhotos          Int       @default(0)
+    totalComments        Int       @default(0)
+    coinsEarned          Int       @default(0)
+    
+    // Onboarding
+    onboardingCompleted  Boolean   @default(false)
 
     // Email verification
     verificationToken    String?   @unique

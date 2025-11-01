@@ -19,6 +19,7 @@ import Image from 'next/image'
 import { useTheme } from 'next-themes'
 import { useSession, signOut } from 'next-auth/react'
 import { ThemeToggle } from './themeswitcher'
+import { usePathname } from 'next/navigation'
 
 const menuItems = [
     { name: 'Features', href: '#features' },
@@ -26,10 +27,11 @@ const menuItems = [
     // { name: 'About', href: '#about' },
 ]
 
-export const Header = () => {
+export const Navbar = () => {
     const [isScrolled, setIsScrolled] = useState(false);
     const { theme, setTheme } = useTheme();
     const { data: session, status } = useSession();
+    const pathname = usePathname();
 
     useEffect(() => {
         const handleScroll = () => {
@@ -234,7 +236,7 @@ export const Header = () => {
                                     height={32}
                                     className='w-10 h-10 rounded-full scale-110'
                                 />
-                                <p className={cn('font-semibold text-xl tracking-tighter text-white', isScrolled && 'text-black dark:text-white')}>
+                                <p className={cn('font-semibold text-xl tracking-tighter text-white', pathname === '/' && isScrolled && 'text-black dark:text-white')}>
                                     TripCrate
                                 </p>
                             </Link>
@@ -269,24 +271,7 @@ export const Header = () => {
                                         }
                                         <div className="flex items-center gap-2 pt-4 border-t">
                                             <span className="text-sm text-muted-foreground">Theme:</span>
-                                            <div className="flex items-center bg-stone-100/50 dark:bg-stone-800/50 rounded-xl p-1 border border-stone-200/50 dark:border-stone-700/50">
-                                                <Button
-                                                    variant="ghost"
-                                                    size="sm"
-                                                    className={`h-7 w-7 p-0 rounded-lg transition-all cursor-pointer ${theme === 'light' ? 'bg-white shadow-sm' : 'hover:bg-stone-700'}`}
-                                                    onClick={() => setTheme('light')}
-                                                >
-                                                    <Sun className="h-3 w-3 text-amber-500" />
-                                                </Button>
-                                                <Button
-                                                    variant="ghost"
-                                                    size="sm"
-                                                    className={`h-7 w-7 p-0 rounded-lg transition-all cursor-pointer ${theme === 'dark' ? 'bg-stone-700 shadow-sm' : 'hover:bg-stone-100'}`}
-                                                    onClick={() => setTheme('dark')}
-                                                >
-                                                    <Moon className="h-3 w-3 text-blue-500" />
-                                                </Button>
-                                            </div>
+                                            <ThemeToggle />
                                         </div>
                                         {renderMobileAuthButtons()}
                                     </div>
@@ -301,7 +286,7 @@ export const Header = () => {
                                             <Link
                                                 href={item.href}
                                                 onClick={() => handleLinkClick(item.href)}
-                                                className={cn("text-white hover:text-gray-500 block duration-150", isScrolled && 'text-black dark:text-white')}>
+                                                className={cn("text-white hover:text-gray-500 block duration-150", pathname === `/${item.href}` && isScrolled && 'text-black dark:text-white')}>
                                                 <span>{item.name}</span>
                                             </Link>
                                         </li>

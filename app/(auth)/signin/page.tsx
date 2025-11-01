@@ -11,6 +11,14 @@ import { ArrowRight } from "lucide-react"
 import { useRouter, useSearchParams } from "next/navigation"
 import { signIn } from "next-auth/react"
 import { toast } from "sonner"
+import { motion } from "framer-motion"
+
+const fadeIn = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.6 }
+}
+
 
 function SignInContent() {
 	const [email, setEmail] = useState("")
@@ -51,9 +59,9 @@ function SignInContent() {
 
 			if (result?.ok) {
 				toast.success('Welcome back!')
-				// For newly verified users, redirect to onboarding instead of dashboard
-				const redirectUrl = callbackUrl === '/dashboard' && searchParams.get('verified') === 'true'
-					? '/onboarding'
+				// For newly verified users, redirect to explore instead of dashboard
+				const redirectUrl = callbackUrl === '/explore'
+					? '/explore'
 					: callbackUrl
 				router.push(redirectUrl)
 			}
@@ -80,7 +88,7 @@ function SignInContent() {
 	}
 
 	return (
-		<div className="min-h-screen py-16 w-full bg-white dark:bg-neutral-950 flex flex-col relative overflow-hidden">
+		<div className="min-h-screen pt-20 w-full bg-white dark:bg-neutral-950 flex flex-col relative overflow-hidden">
 			<div className="absolute inset-0 pointer-events-none">
 				<svg
 					className="w-full h-full text-neutral-950 dark:text-white opacity-[0.02]"
@@ -158,14 +166,17 @@ function SignInContent() {
 								{!isLoading && <ArrowRight className="ml-2 h-4 w-4" />}
 							</Button>
 						</form>
-						<div className="mt-8 text-center">
-							<p className="text-sm text-neutral-600 dark:text-neutral-400">
+						<motion.div variants={fadeIn} className="mt-8 text-center">
+							<p className="text-sm text-gray-600 dark:text-gray-400">
 								Don&apos;t have an account?{" "}
-								<Link href="/signup" className="text-neutral-900 dark:text-white hover:underline font-medium">
+								<Link
+									href={`/signup${searchParams.get('callbackUrl') ? `?callbackUrl=${encodeURIComponent(searchParams.get('callbackUrl') || '')}` : ''}`}
+									className="font-medium text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 hover:underline"
+								>
 									Sign up
 								</Link>
 							</p>
-						</div>
+						</motion.div>
 						<div className="mt-8 pt-6 border-t border-neutral-200 dark:border-neutral-700">
 							<p className="text-xs text-center text-neutral-500 dark:text-neutral-400 mb-4">Or continue with</p>
 							<Button
