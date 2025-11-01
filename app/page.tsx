@@ -10,6 +10,7 @@ import { HeroSection } from "@/components/landing/hero-section"
 import { ProblemSection } from "@/components/landing/problem-section"
 import { SolutionSection } from "@/components/landing/solution-section"
 import { FeaturesSection } from "@/components/landing/features-section"
+import { HowItWorksSection } from "@/components/landing/how-it-works-section"
 import { DestinationsCarousel } from "@/components/landing/destinations-carousel"
 import { CurrencySection } from "@/components/landing/currency-section"
 import { InfluencerSection } from "@/components/landing/influencer-section"
@@ -26,6 +27,7 @@ export default function TripCrateLanding() {
 				<ProblemSection />
 				<SolutionSection />
 				<FeaturesSection />
+				<HowItWorksSection />
 				<DestinationsCarousel />
 				<CurrencySection />
 				<InfluencerSection />

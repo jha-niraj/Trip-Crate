@@ -5,25 +5,25 @@ import { Equal, Moon, Sun, LogOut } from 'lucide-react'
 import React, { useEffect, useState } from 'react'
 import { cn } from '@/lib/utils'
 import { Button } from '@/components/ui/liquid-glass-button'
-import { 
-    Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose 
+import {
+    Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger, SheetClose
 } from '@/components/ui/sheet'
-import { 
-    Avatar, AvatarFallback, AvatarImage 
+import {
+    Avatar, AvatarFallback, AvatarImage
 } from '@/components/ui/avatar'
-import { 
-    DropdownMenu, DropdownMenuContent, DropdownMenuItem, 
-    DropdownMenuSeparator, DropdownMenuTrigger 
+import {
+    DropdownMenu, DropdownMenuContent, DropdownMenuItem,
+    DropdownMenuSeparator, DropdownMenuTrigger
 } from '@/components/ui/dropdown-menu'
 import Image from 'next/image'
 import { useTheme } from 'next-themes'
 import { useSession, signOut } from 'next-auth/react'
+import { ThemeToggle } from './themeswitcher'
 
 const menuItems = [
     { name: 'Features', href: '#features' },
     { name: 'How it Works', href: '#how-it-works' },
-    { name: 'Pricing', href: '#pricing' },
-    { name: 'About', href: '#about' },
+    // { name: 'About', href: '#about' },
 ]
 
 export const Header = () => {
@@ -81,11 +81,11 @@ export const Header = () => {
                                 <div className="flex flex-col space-y-1 leading-none">
                                     {session.user.name && <p className="font-medium">{session.user.name}</p>}
                                     {
-                                    session.user.email && (
-                                        <p className="w-[200px] truncate text-sm text-muted-foreground">
-                                            {session.user.email}
-                                        </p>
-                                    )
+                                        session.user.email && (
+                                            <p className="w-[200px] truncate text-sm text-muted-foreground">
+                                                {session.user.email}
+                                            </p>
+                                        )
                                     }
                                 </div>
                             </div>
@@ -173,10 +173,10 @@ export const Header = () => {
                                 <Link href="/wallet">Wallet</Link>
                             </Button>
                         </SheetClose>
-                        <Button 
-                            onClick={handleSignOut} 
-                            variant="outline" 
-                            size="sm" 
+                        <Button
+                            onClick={handleSignOut}
+                            variant="outline"
+                            size="sm"
                             className="w-full justify-start text-red-600 hover:text-red-700"
                         >
                             <LogOut className="mr-2 h-4 w-4" />
@@ -219,7 +219,7 @@ export const Header = () => {
     return (
         <header>
             <nav className="fixed left-0 w-full z-20 px-2">
-                <div className={cn('mx-auto mt-2 max-w-6xl px-6 transition-all duration-300 lg:px-12', isScrolled && 'bg-background/50 max-w-4xl rounded-2xl border backdrop-blur-lg lg:px-5')}>
+                <div className={cn('mx-auto mt-2 max-w-6xl px-6 transition-all duration-300 lg:px-12', isScrolled && 'bg-background/50 max-w-4xl rounded-2xl backdrop-blur-lg lg:px-5')}>
                     <div className="relative flex flex-wrap items-center justify-between gap-6 lg:gap-0 py-2">
                         <div className="flex w-full justify-between lg:w-auto">
                             <Link
@@ -228,13 +228,15 @@ export const Header = () => {
                                 className="flex gap-2 items-center"
                             >
                                 <Image
-                                    src="/validatexmainlogo.png"
+                                    src="/next.svg"
                                     alt="TripCrate"
                                     width={32}
                                     height={32}
                                     className='w-10 h-10 rounded-full scale-110'
                                 />
-                                <p className='font-semibold text-xl tracking-tighter text-black dark:text-white'>TripCrate</p>
+                                <p className={cn('font-semibold text-xl tracking-tighter text-white', isScrolled && 'text-black dark:text-white')}>
+                                    TripCrate
+                                </p>
                             </Link>
                             <Sheet>
                                 <SheetTrigger asChild>
@@ -299,7 +301,7 @@ export const Header = () => {
                                             <Link
                                                 href={item.href}
                                                 onClick={() => handleLinkClick(item.href)}
-                                                className="text-muted-foreground hover:text-accent-foreground block duration-150">
+                                                className={cn("text-white hover:text-gray-500 block duration-150", isScrolled && 'text-black dark:text-white')}>
                                                 <span>{item.name}</span>
                                             </Link>
                                         </li>
@@ -308,24 +310,7 @@ export const Header = () => {
                             </ul>
                         </div>
                         <div className="hidden lg:flex items-center gap-4">
-                            <div className="flex items-center bg-stone-100/50 dark:bg-stone-800/50 rounded-xl p-1 border border-stone-200/50 dark:border-stone-700/50">
-                                <Button
-                                    variant="ghost"
-                                    size="sm"
-                                    className={`h-7 w-7 p-0 rounded-lg transition-all cursor-pointer ${theme === 'light' ? 'bg-white shadow-sm' : 'hover:bg-stone-700'}`}
-                                    onClick={() => setTheme('light')}
-                                >
-                                    <Sun className="h-3 w-3 text-amber-500" />
-                                </Button>
-                                <Button
-                                    variant="ghost"
-                                    size="sm"
-                                    className={`h-7 w-7 p-0 rounded-lg transition-all cursor-pointer ${theme === 'dark' ? 'bg-stone-700 shadow-sm' : 'hover:bg-stone-100'}`}
-                                    onClick={() => setTheme('dark')}
-                                >
-                                    <Moon className="h-3 w-3 text-blue-500" />
-                                </Button>
-                            </div>
+                            <ThemeToggle />
                             {renderAuthButtons()}
                         </div>
                     </div>

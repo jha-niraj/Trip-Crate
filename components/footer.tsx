@@ -214,34 +214,6 @@ export default function Footer() {
                         </ul>
                     </div>
                     <div>
-                        <h4 className="font-semibold mb-4 text-foreground">Legal</h4>
-                        <ul className="space-y-3">
-                            {
-                                legal.map((link) => (
-                                    <li key={link.name}>
-                                        {
-                                            link.comingSoon ? (
-                                                <button
-                                                    onClick={() => handleComingSoon(link.name)}
-                                                    className="text-muted-foreground hover:text-primary transition-colors text-sm text-left cursor-pointer"
-                                                >
-                                                    {link.name}
-                                                </button>
-                                            ) : (
-                                                <Link
-                                                    href={link.href}
-                                                    className="text-muted-foreground hover:text-primary transition-colors text-sm"
-                                                >
-                                                    {link.name}
-                                                </Link>
-                                            )
-                                        }
-                                    </li>
-                                ))
-                            }
-                        </ul>
-                    </div>
-                    <div>
                         <h4 className="font-semibold mb-4 text-foreground">Contact Us</h4>
                         <ul className="space-y-3">
                             <li className="flex items-start gap-2 text-sm text-muted-foreground">

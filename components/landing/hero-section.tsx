@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Instagram, Linkedin, Github } from "lucide-react"
+import { Instagram, Linkedin } from "lucide-react"
 import { toast } from "sonner"
 import { joinWaitlist } from "@/actions/waitlist.action"
 import { getWaitlistCount } from "@/actions/get-waitlist-count.action"
@@ -75,7 +75,6 @@ export function HeroSection() {
                 <div className="mb-6 sm:mb-8">
                     <TrustElements count={waitlistCount} isLoading={isLoadingCount} />
                 </div>
-
                 <h1 className="w-full text-white leading-tight tracking-tight mb-6 sm:mb-8 animate-fadeIn px-4">
                     <span className="block font-medium text-[clamp(1.5rem,6vw,3.75rem)] whitespace-nowrap">
                         Weekend Trips to Dream Places,
@@ -84,7 +83,6 @@ export function HeroSection() {
                         Starting at Just ₹1,800.
                     </span>
                 </h1>
-
                 <div className="mb-6 sm:mb-10 px-4">
                     <p className="text-[clamp(1rem,3vw,1.5rem)] text-gray-800 leading-relaxed animate-fadeIn animation-delay-200">
                         Be the first to know when we launch.
@@ -93,7 +91,6 @@ export function HeroSection() {
                         Join the waitlist and get exclusive early access.
                     </p>
                 </div>
-
                 <div className="w-full max-w-2xl mb-6 sm:mb-8 px-4">
                     <WaitlistForm
                         email={email}
@@ -106,14 +103,11 @@ export function HeroSection() {
                     />
                 </div>
                 <div className="flex justify-center space-x-6">
-                    <Link href="#" className="text-gray-500 hover:text-gray-300 transition-colors duration-300">
+                    <Link href="#" className="text-black hover:text-gray-700 transition-colors duration-300">
                         <Instagram size={20} className="w-5 h-5 sm:w-[22px] sm:h-[22px]" />
                     </Link>
-                    <Link href="#" className="text-gray-500 hover:text-gray-300 transition-colors duration-300">
+                    <Link href="#" className="text-black hover:text-gray-700 transition-colors duration-300">
                         <Linkedin size={20} className="w-5 h-5 sm:w-[22px] sm:h-[22px]" />
-                    </Link>
-                    <Link href="#" className="text-gray-500 hover:text-gray-300 transition-colors duration-300">
-                        <Github size={20} className="w-5 h-5 sm:w-[22px] sm:h-[22px]" />
                     </Link>
                 </div>
             </div>
@@ -212,7 +206,7 @@ const WaitlistForm: React.FC<WaitlistFormProps> = ({
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
                                 placeholder="Enter Your Email"
-                                className="flex-1 px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-gray-900/60 border border-gray-700 focus:border-white outline-none text-white text-sm sm:text-base shadow-[0_0_15px_rgba(0,0,0,0.3)] backdrop-blur-sm transition-all duration-300"
+                                className="flex-1 px-6 sm:px-8 py-3 sm:py-4 placeholder:text-white rounded-full bg-gray-900/60 border border-gray-700 focus:border-white outline-none text-white text-sm sm:text-base shadow-[0_0_15px_rgba(0,0,0,0.3)] backdrop-blur-sm transition-all duration-300"
                                 required
                                 disabled={isLoading}
                             />
@@ -221,7 +215,7 @@ const WaitlistForm: React.FC<WaitlistFormProps> = ({
                                 value={collegeName}
                                 onChange={(e) => setCollegeName(e.target.value)}
                                 placeholder="Your College Name (Optional)"
-                                className="flex-1 px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-gray-900/60 border border-gray-700 focus:border-white outline-none text-white text-sm sm:text-base shadow-[0_0_15px_rgba(0,0,0,0.3)] backdrop-blur-sm transition-all duration-300"
+                                className="flex-1 px-6 sm:px-8 py-3 sm:py-4 placeholder:text-white rounded-full bg-gray-900/60 border border-gray-700 focus:border-white outline-none text-white text-sm sm:text-base shadow-[0_0_15px_rgba(0,0,0,0.3)] backdrop-blur-sm transition-all duration-300"
                                 disabled={isLoading}
                             />
                         </div>

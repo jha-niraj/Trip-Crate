@@ -50,7 +50,7 @@ export function NewsletterSubscription() {
         <form onSubmit={handleSubmit} className="space-y-3">
             <div className="flex gap-2">
                 <div className="relative flex-1">
-                    <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                    <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 bg-black text-white" />
                     <Input
                         type="email"
                         placeholder="Enter your email"
@@ -63,12 +63,12 @@ export function NewsletterSubscription() {
                 <Button
                     type="submit"
                     disabled={isLoading}
-                    className="shrink-0"
+                    className="shrink-0 h-full flex items-center"
                 >
                     {
                         isLoading ? (
                             <>
-                                <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                                <Loader2 className="mr-2 h-6 w-4 animate-spin" />
                                 Subscribing...
                             </>
                         ) : (
