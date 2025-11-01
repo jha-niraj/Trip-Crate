@@ -51,7 +51,7 @@ export async function subscribeToNewsletter(email: string) {
         if (error instanceof z.ZodError) {
             return {
                 success: false,
-                message: error.errors[0].message,
+                message: error.message,
             };
         }
 

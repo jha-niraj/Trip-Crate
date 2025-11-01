@@ -2,7 +2,9 @@
 
 import type React from "react"
 
-import { Form, FormControl, FormField, FormItem, FormMessage, FormStateMessage } from "@/components/ui/form"
+import { 
+	Form, FormControl, FormField, FormItem, FormMessage, FormStateMessage 
+} from "@/components/ui/form"
 import type { WaitlistSchema } from "@/lib/schema"
 import { useForm, useFormContext } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
@@ -32,7 +34,8 @@ const SubmissionStateMessage = ({ value, reset }: { value: ActionResult<string> 
 
 	return (
 		<FormStateMessage>
-			{value?.success === true && (
+			{
+			value?.success === true && (
 				<motion.div
 					key={value.id}
 					className={cn(alertVariants({ variant: "success" }), "absolute top-0 left-0 right-0 mx-auto w-max")}
@@ -44,7 +47,8 @@ const SubmissionStateMessage = ({ value, reset }: { value: ActionResult<string> 
 					<CheckCircledIcon />
 					<AlertTitle>{value.data}</AlertTitle>
 				</motion.div>
-			)}
+			)
+			}
 		</FormStateMessage>
 	)
 }
@@ -96,6 +100,23 @@ export const FormWaitlist = ({
 		}
 	}
 
+	const renderErrorMessage = (message: string): React.ReactNode => (
+		<motion.div
+			key={message}
+			className={cn(
+				alertVariants({ variant: "destructive" }),
+				"absolute top-0 left-0 right-0 mx-auto w-max",
+			)}
+			initial={{ opacity: 0, y: 10, scale: 0.8 }}
+			animate={{ opacity: 1, y: 0, scale: 1 }}
+			exit={{ opacity: 0, y: 10, scale: 0.8 }}
+			transition={SPRING}
+		>
+			<CrossCircledIcon />
+			<AlertTitle>{message}</AlertTitle>
+		</motion.div>
+	)
+
 	return (
 		<Form {...form}>
 			<form onSubmit={form.handleSubmit(onSubmit)} className="relative">
@@ -104,43 +125,24 @@ export const FormWaitlist = ({
 				<FormField
 					control={form.control}
 					name="email"
-					render={({ field }) => (
+					render={({ field, fieldState }) => (
 						<FormItem className="space-y-0">
 							<FormMessage>
-								{
-								((error: string) => (
-									<motion.div
-										key={error}
-										className={cn(
-											alertVariants({ variant: "destructive" }),
-											"absolute top-0 left-0 right-0 mx-auto w-max",
-										)}
-										initial={{ opacity: 0, y: 10, scale: 0.8 }}
-										animate={{ opacity: 1, y: 0, scale: 1 }}
-										exit={{ opacity: 0, y: 10, scale: 0.8 }}
-										transition={SPRING}
-									>
-										<CrossCircledIcon />
-										<AlertTitle>{error}</AlertTitle>
-									</motion.div>
-								)) as any}
+								{fieldState.error?.message ? renderErrorMessage(fieldState.error.message) : null}
 							</FormMessage>
 							<FormControl>
 								<div className="relative">
 									{input({ ...field })}
 									<div className="absolute right-0 top-1/2 -translate-y-1/2">
-										{
-										submit({
+										{submit({
 											type: "submit",
 											disabled: form.formState.isSubmitting,
-										})
-										}
+										})}
 									</div>
 								</div>
 							</FormControl>
 						</FormItem>
-					)
-				}
+					)}
 				/>
 			</form>
 		</Form>

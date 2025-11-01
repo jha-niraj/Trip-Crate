@@ -3,7 +3,6 @@
 import { prisma } from "@/lib/prisma"
 import { Resend } from "resend"
 import bcrypt from "bcryptjs"
-import { signIn } from "@/auth"
 import { verificationEmailTemplate, passwordResetEmailTemplate, registrationSuccessEmailTemplate } from "@/lib/email-templates"
 
 const resend = new Resend(process.env.RESEND_API_KEY)
@@ -297,25 +296,5 @@ export async function resetPassword(token: string, newPassword: string) {
     } catch (error) {
         console.error("Password reset error:", error)
         return { success: false, error: "Failed to reset password" }
-    }
-}
-
-// Sign in user after verification
-export async function signInUser(email: string, callbackUrl?: string) {
-    try {
-        const result = await signIn("credentials", {
-            email,
-            password: "verified", // This is a special flag for verified users
-            redirect: false,
-        })
-
-        if (result?.error) {
-            return { success: false, error: "Failed to sign in" }
-        }
-
-        return { success: true, callbackUrl }
-    } catch (error) {
-        console.error("Sign in error:", error)
-        return { success: false, error: "Failed to sign in" }
     }
 }

@@ -149,7 +149,7 @@ export default function ExplorePage() {
         2000,
     ]
 
-    const handleSearchSubmit = (e: React.FormEvent) => {
+    const handleSearchSubmit = async (e: React.FormEvent) => {
         e.preventDefault()
         if (!searchQuery.trim()) return
         
@@ -164,27 +164,31 @@ export default function ExplorePage() {
                 const newMessage = { role: 'user' as const, content: messageContent }
                 setChatMessages(prev => [...prev, newMessage])
                 setSearchQuery('')
-                setIsSending(true)
+                
+                // Create a new state setter to avoid closure issues
+                const sendingStateSetter = (value: boolean) => {
+                    setIsSending(value)
+                }
+                
+                sendingStateSetter(true)
 
                 // Get chat response
-                (async () => {
-                    try {
-                        const { chatWithRobot } = await import('@/actions/explore.action')
-                        const result = await chatWithRobot(messageContent, chatMessages)
+                try {
+                    const { chatWithRobot } = await import('@/actions/explore.action')
+                    const result = await chatWithRobot(messageContent, chatMessages)
 
-                        if (result.success) {
-                            setChatMessages(prev => [...prev, {
-                                role: 'assistant',
-                                content: result.message,
-                                links: result.links
-                            }])
-                        }
-                    } catch (error) {
-                        console.error('Chat error:', error)
-                    } finally {
-                        setIsSending(false)
+                    if (result.success) {
+                        setChatMessages(prev => [...prev, {
+                            role: 'assistant',
+                            content: result.message,
+                            links: result.links
+                        }])
                     }
-                })()
+                } catch (error) {
+                    console.error('Chat error:', error)
+                } finally {
+                    sendingStateSetter(false)
+                }
             }
         }
     }

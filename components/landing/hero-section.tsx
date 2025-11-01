@@ -7,6 +7,7 @@ import { joinWaitlist } from "@/actions/waitlist.action"
 import { getWaitlistCount } from "@/actions/get-waitlist-count.action"
 import Link from "next/link"
 import { Input } from "../ui/input"
+import Image from "next/image"
 
 export function HeroSection() {
     const [email, setEmail] = useState("")
@@ -131,10 +132,12 @@ const Avatar: React.FC<AvatarProps> = ({ imageSrc, delay }) => {
             className="relative h-6 w-6 sm:h-8 sm:w-8 md:h-10 md:w-10 rounded-full overflow-hidden border-2 border-gray-700 shadow-lg animate-fadeIn"
             style={{ animationDelay: `${delay}ms` }}
         >
-            <img
+            <Image
                 src={imageSrc}
                 alt="User avatar"
                 className="h-full w-full object-cover"
+                height={48}
+                width={48}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
         </div>
